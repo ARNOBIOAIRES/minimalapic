@@ -1,0 +1,11 @@
+using System;
+
+namespace minimalApi.Infraestrutura
+{
+    public class Gitkeep 
+    {
+        public Gitkeep()
+        {
+        }
+    }
+}

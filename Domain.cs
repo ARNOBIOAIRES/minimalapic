@@ -1,6 +1,6 @@
 using System;
 
-namespace minimal-api
+namespace minimalApi.Domain
 {
     public class Domain 
     {

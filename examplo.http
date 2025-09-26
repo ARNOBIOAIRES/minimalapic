@@ -3,6 +3,6 @@ POST http://localhost:5023/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "adm@test.com",
-    "password": "123456"
+    "Email": "administrador@teste.com",
+    "Senha": "123456"
 }
