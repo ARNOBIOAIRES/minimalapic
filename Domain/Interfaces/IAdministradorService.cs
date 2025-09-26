@@ -15,5 +15,5 @@ public interface IAdministradorService
 
    Administrador? GetById(int id);
   
-  List<Administrador> GetAll(int? page, int pageSize);
+  List<Administrador> GetAll(int? page);
   }

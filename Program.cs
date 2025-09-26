@@ -34,6 +34,8 @@ builder.Services.AddAuthentication(options =>
     {
         ValidateLifetime = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
+        ValidateIssuer = false,
+        ValidateAudience = false,
     };
 });
 
@@ -125,11 +127,11 @@ else
 
 
 // buscar todos os administradores
-app.MapGet("/administradores", ([FromQuery] int? page, [FromQuery] int pageSize, IAdministradorService administradorService) =>
+app.MapGet("/administradores", ([FromQuery] int? page, IAdministradorService administradorService) =>
 {
     var adms = new List<AdministradorModelView>();
 
-    var administradores = administradorService.GetAll(page, pageSize);
+    var administradores = administradorService.GetAll(page);
     foreach (var adm in administradores)
     {
         adms.Add(new AdministradorModelView

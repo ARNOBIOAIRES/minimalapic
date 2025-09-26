@@ -31,14 +31,16 @@ namespace minimalApi.Domain.Services
             return administrador;
         }
 
-        public List<Administrador> GetAll(int? page, int pageSize)
+        public List<Administrador> GetAll(int? page = 1)
        {
             var query = _contexto.Administradores.AsQueryable();
 
             int pageNumber = page ?? 1;
 
-            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-        }
+            return pageNumber > 0
+                ? query.Skip((pageNumber - 1) * 10).Take(10).ToList()
+                : query.ToList();
+        }   
 
         public Administrador? Login(LoginDTO loginDTO)
         {
